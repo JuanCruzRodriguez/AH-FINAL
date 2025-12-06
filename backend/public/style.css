@@ -1,0 +1,36 @@
+body {
+    background-color: #ffffff;
+    color: #292929;
+}
+
+header {
+    background: #292929;
+}
+
+main{
+    min-height: 660px;
+}
+
+.list-group-item {
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+pre {
+    background-color: #dfdfdf;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+footer {
+    background-color: #292929;
+    color: #f8f9fa;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

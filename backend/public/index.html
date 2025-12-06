@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Películas y Series</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="text-center text-white py-3 mb-3">
+        <h1>API Películas y Series</h1>
+        <p class="pt-4">Gestioná, añadí y organizá tus películas y series favoritas con esta API</p>
+    </header>
+    <main class="container pt-5 pb-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Películas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Series</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Usuarios</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0"><ul class="list-group mb-3">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/peliculas" target="_blank">/api/peliculas</a> - Listar todas las películas
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        <a href="/api/peliculas" target="_blank">/api/peliculas</a> - Crear nueva película
+                        <pre>
+                            {
+                                "titulo": "Nombre de la película",
+                                "descripcion": "Descripción",
+                                "director": "Nombre del director",
+                                "anio": 2025,
+                                "genero": "Acción",
+                                "favorita": false
+                            }
+                        </pre>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/peliculas/:id" target="_blank">/api/peliculas/:id</a> - Obtener película por ID
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">PUT</span>
+                        <a href="/api/peliculas/:id" target="_blank">/api/peliculas/:id</a> - Actualizar película
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-danger">DELETE</span>
+                        <a href="/api/peliculas/:id" target="_blank">/api/peliculas/:id</a> - Eliminar película
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/series" target="_blank">/api/series</a> - Listar todas las series
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        <a href="/api/series" target="_blank">/api/series</a> - Crear nueva serie
+                        <pre>
+                            {
+                                "titulo": "Nombre de la serie",
+                                "descripcion": "Descripción",
+                                "anio": 2025,
+                                "genero": "Drama",
+                                "temporadas": 1,
+                                "favorita": false
+                            }
+                        </pre>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/series/:id" target="_blank">/api/series/:id</a> - Obtener serie por ID
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">PUT</span>
+                        <a href="/api/series/:id" target="_blank">/api/series/:id</a> - Actualizar serie
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-danger">DELETE</span>
+                        <a href="/api/series/:id" target="_blank">/api/series/:id</a> - Eliminar serie
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge text-bg-info">GET</span>
+                        <a href="/api/users" target="_blank">/api/users</a> - Listar todos los usuarios (solo admins o pruebas)
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-success">POST</span>
+                        <a href="/api/users/register" target="_blank">/api/users/register</a> - Registrar nuevo usuario
+                        <pre>
+                            {
+                                "name": "Juan Pérez",
+                                "email": "juan@mail.com",
+                                "password": "123456"
+                            }
+                        </pre>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-primary">POST</span>
+                        <a href="/api/users/login" target="_blank">/api/users/login</a> - Iniciar sesión
+                        <pre>
+                            {
+                                "email": "juan@mail.com",
+                                "password": "123456"
+                            }
+                        </pre>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge text-bg-warning">GET</span>
+                        <a href="/api/users/profile" target="_blank">/api/users/profile</a> - Obtener perfil del usuario (requiere token JWT)
+                        <pre>
+                            Header:
+                            Authorization: Bearer [tu_token_jwt]
+                        </pre>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3 mt-4 pt-5 pb-5">
+        <ul class="list-unstyled">
+            <li>Juan Cruz Rodríguez</li>
+            <li>Aplicaciones Híbridas</li>
+            <li>Docente: Jonathan Emanuel Cruz</li>
+            <li>Comisión: DWN4AV</li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
